@@ -1,7 +1,7 @@
 'use strict'
 
 import jwt from 'jsonwebtoken'
-import { findAdmin } from '../utils/db.validators'
+import { findAdmin } from '../utils/db.validators.js'
 
 export const validateJwt = async(req, res, next) => {
     try{

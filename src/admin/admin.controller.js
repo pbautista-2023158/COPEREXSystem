@@ -1,3 +1,4 @@
+//Controlador de admin
 import Admin from '../admin/admin.model.js'
 import { checkPassword, encrypt } from '../../utils/encryp.js'
 import { generateJwt } from '../../utils/jwt.js'

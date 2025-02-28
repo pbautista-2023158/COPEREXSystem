@@ -1,4 +1,4 @@
-//Modelo de usuario
+//Modelo de admin
 import { Schema, model } from 'mongoose'
 
 const adminSchema = Schema(

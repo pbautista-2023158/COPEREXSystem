@@ -1,3 +1,4 @@
+//Rutas de admin
 import { Router } from "express";
 import { login } from "./admin.controller.js";
 

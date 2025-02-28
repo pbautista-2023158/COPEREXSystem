@@ -1,23 +1,25 @@
+//Rutas de empresa
 import { Router } from 'express'
 import { 
     createCompany, 
-    deleteCompany, 
     getCompanies, 
     getCompaniesByAZ, 
     getCompaniesByCategory, 
     getCompaniesByTrajectory, 
+    getCompaniesByZA, 
     updateCompany } 
 from './company.controller.js'
+import { validateJwt } from '../../middlewares/validate.jwt.js'
+import { CompanyValidator } from '../../middlewares/validators.js'
 
 const api = Router()
 
-api.post('/', createCompany)
-api.put('/:id', updateCompany)
-api.delete('/:id', deleteCompany)
-
-api.get('/', getCompanies)
-api.get('/category/:category', getCompaniesByCategory)
-api.get('/trajectory/:trajectory', getCompaniesByTrajectory)
-api.get('/AZ', getCompaniesByAZ)
+api.post('/', [validateJwt, CompanyValidator], createCompany)
+api.put('/:id', [validateJwt, CompanyValidator], updateCompany)
+api.get('/', validateJwt, getCompanies)
+api.get('/category/:category', validateJwt, getCompaniesByCategory)
+api.get('/trajectory/:trajectory', validateJwt, getCompaniesByTrajectory)
+api.get('/AZ', validateJwt, getCompaniesByAZ)
+api.get('/ZA', validateJwt, getCompaniesByZA)
 
 export default api
